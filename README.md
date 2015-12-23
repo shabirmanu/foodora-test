@@ -48,3 +48,6 @@ So your boss ordered to you to run a script on Dec 20th at 23:00 to fix the prob
 
 - Weekday: 1-Monday, 2-Tuesday, ..., 7-Sunday.
 - Please, fork this project, create both scripts and send a pull request for me.
+- The team did a rollback in the software. So the current version doesn't know anything about the SpecialDays feature.
+- The solution in this case is to use temporarily the regular days as the SpecialDays in this week (Dec 21-27) and after that restore the database and feature.
+- Assume that the team is correcting the feature during this week and on Monday 28th everything will be normal.
