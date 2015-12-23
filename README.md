@@ -4,7 +4,7 @@
 
 Imagine that you work in a delivering food company. When a restaurant is added to your backend system, one of the input informations you need to set is the regular opening hours for this restaurant in a week. For example, restaurant FooBar is opened from 19:00 to 22:00 from Tuesday to Friday, from 11:00 to 14:00 and 19:00 to 23:59:59 on Saturday and 24-hours opened on sundays. On Monday it is closed.
 
-Also, imagine that a new feature has just being launched and this feature is called SpecialDays. This feature allows the restaurants to be opened or closed in special days such as Christmas. If a special day is created, the regular day has no effect for that day.
+Also, imagine that a new feature was launched and this feature is called SpecialDays. This feature allows the restaurants to be opened or closed in special days such as Christmas. If a special day is created, the regular day has no effect for that day.
 
 So imagine that the Restaurant FooBar has to be closed on Dec 24th, Dec 25th and opened from from 19:00 to 22:00 on Dec 26th and Dec 27th of this year.
 
@@ -47,7 +47,8 @@ So your boss ordered to you to run a script on Dec 20th at 23:00 to fix the prob
 ## Some considerations
 
 - Weekday: 1-Monday, 2-Tuesday, ..., 7-Sunday.
-- Please, fork this project, create both scripts and send a pull request for me.
 - The team did a rollback in the software. So the current version doesn't know anything about the SpecialDays feature.
 - The solution in this case is to use temporarily the regular days as the SpecialDays in this week (Dec 21-27) and after that restore the database and feature.
 - Assume that the team is correcting the feature during this week and on Monday 28th everything will be normal.
+- Nobody will create/update special dates and schedules from Dec 21st and Dec 27th.
+- Please, fork this project, create both scripts and send a pull request for me.
