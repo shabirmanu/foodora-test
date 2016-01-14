@@ -6,7 +6,7 @@ Imagine that you work in a delivering food company. When a restaurant is added t
 
 Also, imagine that a new feature was launched and this feature is called SpecialDays. This feature allows the restaurants to be opened or closed in special days such as Christmas. If a special day is created, the regular day has no effect for that day.
 
-So imagine that the Restaurant FooBar has to be closed on Dec 24th, Dec 25th and opened from from 19:00 to 22:00 on Dec 26th and Dec 27th of this year.
+So imagine that the Restaurant FooBar has to be closed on Dec 24th, Dec 25th and opened from from 19:00 to 22:00 on Dec 26th and Dec 27th of 2015 and you are a week from those thats right now.
 
 ### - Database model
 
@@ -52,3 +52,4 @@ So your boss ordered to you to run a script on Dec 20th at 23:00 to fix the prob
 - Assume that the team is correcting the feature during this week and on Monday 28th everything will be normal.
 - Nobody will create/update special dates and schedules from Dec 21st and Dec 27th.
 - Please, fork this project, create both scripts and send a pull request for me.
+- Please, use a OOP design/approach as best as you can to implement both scripts.
