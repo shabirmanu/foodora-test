@@ -1,0 +1,25 @@
+diff --git a/backup.php b/backup.php
+index a3829b4..244cefa 100644
+--- a/backup.php
++++ b/backup.php
+@@ -35,12 +35,15 @@ class FaultRestorer
+ 	public function updateSpecialDays() {
+ 		// If backup successful
+ 		$this->_takeBackup();
+-			$query = "UPDATE vendor_schedule vs set vs.weekday = (select DAYOFWEEK(sd.special_date) from vendor_special_day sd 
+-				where sd.id = vs.id) , vs.all_day = (select sd.all_day from vendor_special_day sd where sd.id = vs.id) ,
+-	            vs.start_hour = (select sd.start_hour from vendor_special_day sd where sd.id = vs.id) ,
+-	            vs.stop_hour = (select sd.stop_hour from vendor_special_day sd where sd.id = vs.id)";
+-			
++		$query = "
++				UPDATE vendor_schedule vs INNER JOIN vendor_special_day ovsd on vs.weekday = (WEEKDAY(ovsd.special_date) + 1) 
++				SET vs.weekday = WEEKDAY(ovsd.special_date) + 1, 
++				vs.all_day = ovsd.all_day, vs.start_hour = ovsd.start_hour, 
++				vs.stop_hour = ovsd.stop_hour";
+ 			$special_days = $this->dbh->runQuery($query);
++			$query = "Delete s1 from vendor_schedule s1, vendor_schedule s2 where s1.id > s2.id and s1.vendor_id = s2.vendor_id 
++			and s1.weekday = s2.weekday and s1.all_day = s2.all_day and s1.start_hour = s2.start_hour and s1.stop_hour = s2.stop_hour";
++			$dup_days = $this->dbh->runQuery($query);
+ 		
+ 	}
+ }
